@@ -22,8 +22,17 @@ public class MystorePageTest {
     public void mystoreLoginPage() {
         MystoreMainPage mystoreMainPage = new MystoreMainPage(this.driver);
         mystoreMainPage.clickUserIcon();
+
         MystoreLoginPage mystoreLoginPage = new MystoreLoginPage(this.driver);
         mystoreLoginPage.fillLoginForm("wuh03167@cdfaq.com","123QWE!@#");
         mystoreLoginPage.clickSignInButton();
+
+        MystoreAccountPage mystoreAccountPage = new MystoreAccountPage(this.driver);
+        mystoreAccountPage.clickAddressIcon();
+
+        MystoreAddressPage mystoreAddressPage = new MystoreAddressPage(this.driver);
+        mystoreAddressPage.createNewAddress();
+        mystoreAddressPage.fillAddressForm("Alias","Address","City","11-300",1,"123 321 456");
+        mystoreAddressPage.clickSaveAddressButton();
     }
 }

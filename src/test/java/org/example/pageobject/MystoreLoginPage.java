@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 public class MystoreLoginPage {
     private WebDriver driver;
 
-    public MystoreLoginPage(WebDriver driver){this.driver = driver;}
+    public MystoreLoginPage(WebDriver driver){
+        this.driver = driver;
+    }
 
     public void fillLoginForm(String emailToInput, String passwordToInput){
         WebElement emailInput = this.driver.findElement(By.name("email"));
