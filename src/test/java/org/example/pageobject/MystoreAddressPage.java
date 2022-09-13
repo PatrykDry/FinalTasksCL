@@ -14,7 +14,7 @@ public class MystoreAddressPage {
         WebElement createNewAddress = driver.findElement(By.cssSelector("a[data-link-action=add-address]"));
         createNewAddress.click();
     }
-    public void fillAddressForm(String alias, String address, String city, String postalCode, Integer country, String phone){
+    public void fillAddressForm(String alias, String address, String city, String postalCode, int country, String phone){
         WebElement aliasFormInput = driver.findElement(By.cssSelector("input[name=alias]"));
         aliasFormInput.sendKeys(alias);
 

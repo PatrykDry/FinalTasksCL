@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class MystorePageTest {
+public class MystorePageTest1 {
     private WebDriver driver;
 
     @BeforeEach

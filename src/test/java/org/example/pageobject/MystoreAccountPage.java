@@ -14,4 +14,8 @@ public class MystoreAccountPage {
         WebElement addressesButton = driver.findElement(By.id("addresses-link"));
         addressesButton.click();
     }
+    public void clickToMainPage(){
+        WebElement clickToMainPage = driver.findElement(By.cssSelector("#_desktop_logo > a"));
+        clickToMainPage.click();
+    }
 }

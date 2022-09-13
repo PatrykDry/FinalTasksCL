@@ -15,5 +15,10 @@ public class MystoreMainPage {
         WebElement signinButton = this.driver.findElement(By.cssSelector("#_desktop_user_info > div > a"));
         signinButton.click();
     }
+
+    public void selectItem(){
+        WebElement selectSweater = this.driver.findElement(By.cssSelector("#content > section > div > article:nth-child(2) > div > a > img"));
+        selectSweater.click();
+    }
 }
 
