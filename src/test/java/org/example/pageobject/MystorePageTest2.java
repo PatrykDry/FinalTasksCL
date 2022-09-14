@@ -1,10 +1,13 @@
 package org.example.pageobject;
 
+import org.junit.After;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class MystorePageTest2 {
@@ -19,7 +22,7 @@ public class MystorePageTest2 {
     }
 
     @Test
-    public void mystoreLoginPage() {
+    public void mystoreLoginPage() throws IOException {
         MystoreMainPage mystoreMainPage = new MystoreMainPage(this.driver);
         mystoreMainPage.clickUserIcon();
 
@@ -41,6 +44,17 @@ public class MystorePageTest2 {
         mystoreShoppingCartPage.proceedToCheckout();
 
         MystoreOrderPage mystoreOrderPage = new MystoreOrderPage(this.driver);
-        mystoreOrderPage.clickContinueButton();
+        mystoreOrderPage.confirmAddress();
+
+        mystoreOrderPage.pickShippingMethod();
+        mystoreOrderPage.confirmShippingMethod();
+        mystoreOrderPage.pickPaymentMethod();
+        mystoreOrderPage.agreeTermsOfService();
+        mystoreOrderPage.confirmOrder();
+        mystoreOrderPage.saveScreenshot();
+
+        driver.quit();
+
     }
+
 }

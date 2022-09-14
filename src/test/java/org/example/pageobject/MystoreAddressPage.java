@@ -1,5 +1,6 @@
 package org.example.pageobject;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,7 @@ public class MystoreAddressPage {
     public void fillAddressForm(String alias, String address, String city, String postalCode, int country, String phone){
         WebElement aliasFormInput = driver.findElement(By.cssSelector("input[name=alias]"));
         aliasFormInput.sendKeys(alias);
+        Assertions.assertEquals(alias,aliasFormInput.getAttribute("value"));
 
         WebElement addressFormInput = driver.findElement(By.cssSelector("input[name=address1]"));
         addressFormInput.sendKeys(address);
