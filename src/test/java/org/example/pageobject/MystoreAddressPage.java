@@ -15,27 +15,32 @@ public class MystoreAddressPage {
         WebElement createNewAddress = driver.findElement(By.cssSelector("a[data-link-action=add-address]"));
         createNewAddress.click();
     }
-    public void fillAddressForm(String alias, String address, String city, String postalCode, int country, String phone){
+    public void fillAddressForm(String alias, String address, String city, String postalCode, String country, String phone){
         WebElement aliasFormInput = driver.findElement(By.cssSelector("input[name=alias]"));
         aliasFormInput.sendKeys(alias);
         Assertions.assertEquals(alias,aliasFormInput.getAttribute("value"));
 
         WebElement addressFormInput = driver.findElement(By.cssSelector("input[name=address1]"));
         addressFormInput.sendKeys(address);
+        Assertions.assertEquals(address,addressFormInput.getAttribute("value"));
 
         WebElement cityFormInput = driver.findElement(By.cssSelector("input[name=city]"));
         cityFormInput.sendKeys(city);
+        Assertions.assertEquals(city,cityFormInput.getAttribute("value"));
 
         WebElement postalCodeFormInput = driver.findElement(By.cssSelector("input[name=postcode]"));
         postalCodeFormInput.sendKeys(postalCode);
+        Assertions.assertEquals(postalCode,postalCodeFormInput.getAttribute("value"));
 
         WebElement countryFormInput = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/section/div[10]/div[1]/select"));
         countryFormInput.click();
         Select selectCountry = new Select(countryFormInput);
-        selectCountry.selectByIndex(country);
+        selectCountry.selectByVisibleText(country);
+      //  Assertions.assertEquals(country,countryFormInput.getAttribute("option:nth-child(2)"));
 
         WebElement phoneFormInput = driver.findElement(By.cssSelector("input[name=phone]"));
         phoneFormInput.sendKeys(phone);
+        Assertions.assertEquals(phone,phoneFormInput.getAttribute("value"));
     }
 
     public void clickSaveAddressButton(){
