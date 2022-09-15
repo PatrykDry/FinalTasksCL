@@ -32,5 +32,5 @@ Feature: User can log in using proper data
     And clicked on save button
     Then check that address is added
     Examples:
-      |alias|address  |city |postalCode |phoneNumber    |
-      |Jacek|polna 7  |Mława|06-500   |933666666|
+      |alias|address  |city |postalCode |phoneNumber  |
+      |Alias|Address  |City |11-11      |123 345 567  |
