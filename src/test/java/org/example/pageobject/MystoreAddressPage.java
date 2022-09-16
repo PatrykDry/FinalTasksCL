@@ -15,29 +15,38 @@ public class MystoreAddressPage {
         WebElement createNewAddress = driver.findElement(By.cssSelector("a[data-link-action=add-address]"));
         createNewAddress.click();
     }
-    public void fillAddressForm(String alias, String address, String city, String postalCode, String country, String phone){
+    public void fillAliasFromInput(String alias){
         WebElement aliasFormInput = driver.findElement(By.cssSelector("input[name=alias]"));
         aliasFormInput.sendKeys(alias);
         Assertions.assertEquals(alias,aliasFormInput.getAttribute("value"));
+    }
 
+    public void fillAddressFromInput(String address){
         WebElement addressFormInput = driver.findElement(By.cssSelector("input[name=address1]"));
         addressFormInput.sendKeys(address);
         Assertions.assertEquals(address,addressFormInput.getAttribute("value"));
+    }
 
+    public void fillCityFromInput(String city){
         WebElement cityFormInput = driver.findElement(By.cssSelector("input[name=city]"));
         cityFormInput.sendKeys(city);
         Assertions.assertEquals(city,cityFormInput.getAttribute("value"));
+    }
 
+    public void fillPostalCodeFromInput(String postalCode){
         WebElement postalCodeFormInput = driver.findElement(By.cssSelector("input[name=postcode]"));
         postalCodeFormInput.sendKeys(postalCode);
         Assertions.assertEquals(postalCode,postalCodeFormInput.getAttribute("value"));
+    }
 
+    public void chooseCountry(String country){
         WebElement countryFormInput = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/form/section/div[10]/div[1]/select"));
         countryFormInput.click();
         Select selectCountry = new Select(countryFormInput);
         selectCountry.selectByVisibleText(country);
-      //  Assertions.assertEquals(country,countryFormInput.getAttribute("option:nth-child(2)"));
+    }
 
+    public void fillPhoneFromInput(String phone){
         WebElement phoneFormInput = driver.findElement(By.cssSelector("input[name=phone]"));
         phoneFormInput.sendKeys(phone);
         Assertions.assertEquals(phone,phoneFormInput.getAttribute("value"));
@@ -46,5 +55,10 @@ public class MystoreAddressPage {
     public void clickSaveAddressButton(){
         WebElement clickSaveButton = driver.findElement(By.cssSelector("#content > div > div > form > footer > button"));
         clickSaveButton.click();
+    }
+
+    public void addressAddeddSuccessfully(){
+        WebElement addressAddeddAlert = driver.findElement(By.xpath("//*[@id=\"notifications\"]/div/article/ul/li"));
+        Assertions.assertEquals("Address successfully added!",addressAddeddAlert.getText());
     }
 }

@@ -1,7 +1,5 @@
 package org.example.pageobject;
 
-import org.junit.After;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.IOException;
 import java.time.Duration;
 
-public class MystorePageTest2 {
+public class MystoreBuyProductTest {
     private WebDriver driver;
 
     @BeforeEach

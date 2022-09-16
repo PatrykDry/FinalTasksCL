@@ -1,6 +1,5 @@
 package org.example.pageobject;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class MystorePageTest1 {
+public class MystoreAddAddressTest {
     private WebDriver driver;
 
     @BeforeEach
@@ -33,7 +32,14 @@ public class MystorePageTest1 {
 
         MystoreAddressPage mystoreAddressPage = new MystoreAddressPage(this.driver);
         mystoreAddressPage.createNewAddress();
-        mystoreAddressPage.fillAddressForm("Alias","Address","City","11-300","United Kingdom","123 321 456");
+        mystoreAddressPage.fillAliasFromInput("Alias");
+        mystoreAddressPage.fillAddressFromInput("Address");
+        mystoreAddressPage.fillCityFromInput("City");
+        mystoreAddressPage.fillPostalCodeFromInput("11-300");
+        mystoreAddressPage.chooseCountry("United Kingdom");
+        mystoreAddressPage.fillPhoneFromInput("123 321 456");
         mystoreAddressPage.clickSaveAddressButton();
+
+
     }
 }
